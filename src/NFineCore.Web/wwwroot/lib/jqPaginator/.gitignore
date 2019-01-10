@@ -1,0 +1,7 @@
+.gitattributes
+demo/
+node_modules/
+.git/
+.idea/
+.vscode/
+src/js/libs/

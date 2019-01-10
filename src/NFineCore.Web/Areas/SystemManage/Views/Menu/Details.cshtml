@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/framework-font.css" rel="stylesheet" />
+    <link href="~/css/framework-theme.css" rel="stylesheet" />
+    <script src="~/lib/jquery/1.12.4/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="~/lib/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/wdtree/tree.js"></script>
+    <link href="~/lib/wdtree/tree.css" rel="stylesheet" />
+    <link href="~/lib/select2/select2.min.css" rel="stylesheet" />
+    <script src="~/lib/select2/select2.min.js"></script>
+    <script src="~/lib/laydate/laydate.js"></script>
+    <script src="~/lib/moment/moment.js"></script>
+    <link href="~/lib/wizard/wizard.css" rel="stylesheet" />
+    <script src="~/lib/wizard/wizard.js"></script>
+    <script src="~/lib/validate/jquery.validate.min.js"></script>
+    <script src="~/lib/datepicker/WdatePicker.js"></script>
+    <script src="~/lib/jqgrid/5.3.0/i18n/grid.locale-cn.js"></script>
+    <link href="~/css/framework-ui.css" rel="stylesheet" />
+    <script src="~/js/framework-ui.js"></script>
+
+    <link href="~/lib/iconpicker/icon-picker.min.css" rel="stylesheet" />
+    <script src="~/lib/iconpicker/iconPicker.js"></script>
+</head>
+<body>
+    <script>
+        var keyValue = $.request("keyValue");
+        $(function () {
+            $(".a1").iconPicker();
+            initControl();
+            if (!!keyValue) {
+                $.ajax({
+                    url: "/SystemManage/Menu/GetFormJson",
+                    data: { keyValue: keyValue },
+                    dataType: "json",
+                    async: false,
+                    success: function (data) {
+                        $("#form1").formSerialize(data);
+                        $("#form1").find('.form-control,input').attr('readonly', 'readonly');
+                        $("#form1").find('div.ckbox label').attr('for', '');
+                        $("#form1").find('select').attr('disabled', 'disabled');
+                    }
+                });
+            }
+        });
+        function initControl() {
+            $("#Target").select2({
+                minimumResultsForSearch: -1
+            });
+            $("#ParentId").bindSelect({
+                url: "/SystemManage/Menu/GetTreeSelectJson",
+            }); Module
+            $("#Module").bindSelect({
+                url: "/SystemManage/DictItem/GetSelectJson",
+                param: { enCode: "ResourceModule" }
+            });
+        }
+    </script>
+    <form id="form1">
+        <div style="margin-top: 10px; margin-left: 10px; margin-right: 10px;">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">基本信息</a></li>
+                <li role="presentation"><a href="#">扩展信息</a></li>
+            </ul>
+            <div style="padding-top: 20px; margin-right: 30px;">
+                <table class="form">
+                    <tr>
+                        <th class="formTitle">上级</th>
+                        <td class="formValue">
+                            <select id="ParentId" name="ParentId" class="form-control required">
+                                <option value="0">父节点</option>
+                            </select>
+                        </td>
+                        <th class="formTitle">名称</th>
+                        <td class="formValue">
+                            <input id="FullName" name="FullName" type="text" class="form-control required" placeholder="请输入名称" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="formTitle">连接</th>
+                        <td class="formValue">
+                            <input id="UrlAddress" name="UrlAddress" type="text" class="form-control" />
+                        </td>
+                        <th class="formTitle">目标</th>
+                        <td class="formValue">
+                            <select id="Target" name="Target" class="form-control required">
+                                <option value="">==请选择==</option>
+                                <option value="expand" title="expand">无页面</option>
+                                <option value="iframe" title="iframe">框架页</option>
+                                <option value="open" title="open">弹出页</option>
+                                <option value="blank" title="blank">新窗口</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="formTitle">图标</th>
+                        <td class="formValue">
+                            <input id="Icon" name="Icon" type="text" value="fa fa-th-large" class="form-control required a1">
+                        </td>
+                        <th class="formTitle">排序</th>
+                        <td class="formValue">
+                            <input id="SortCode" name="SortCode" type="text" class="form-control required" placeholder="请输入排序" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="formTitle" style="height: 35px;">选项</th>
+                        <td class="formValue" colspan="3" style="padding-top: 1px;">
+                            <div class="ckbox">
+                                <input id="IsMenu" name="IsMenu" type="checkbox"><label for="IsMenu">菜单</label>
+                            </div>
+                            <div class="ckbox">
+                                <input id="IsPublic" name="IsPublic" type="checkbox"><label for="IsPublic">公共</label>
+                            </div>
+                            <div class="ckbox">
+                                <input id="IsExpand" name="IsExpand" type="checkbox"><label for="IsExpand">展开</label>
+                            </div>
+                            <div class="ckbox">
+                                <input id="IsDisplay" name="IsDisplay" type="checkbox"><label for="IsDisplay">显示</label>
+                            </div>
+                            <div class="ckbox">
+                                <input id="EnabledMark" name="EnabledMark" type="checkbox" checked="checked"><label for="EnabledMark">有效</label>
+                            </div>
+                            <div class="ckbox">
+                                <input id="AllowEdit" name="AllowEdit" type="checkbox"><label for="AllowEdit">允许编辑</label>
+                            </div>
+                            <div class="ckbox">
+                                <input id="AllowDelete" name="AllowDelete" type="checkbox"><label for="AllowDelete">允许删除</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="formTitle">权限代码</th>
+                        <td class="formValue">
+                            <input id="PermissionCode" name="PermissionCode" type="text" class="form-control required" placeholder="请输入权限代码" />
+                        </td>
+                        <th class="formTitle">资源模块</th>
+                        <td class="formValue">
+                            <select id="Module" name="Module" class="form-control required">
+                                <option value="">==请选择==</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="formTitle" valign="top" style="padding-top: 5px;">
+                            介绍
+                        </th>
+                        <td class="formValue" colspan="3">
+                            <textarea id="Description" name="Descriptions" class="form-control" style="height: 100px;"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

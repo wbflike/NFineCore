@@ -1,0 +1,9 @@
+E:\CSharp\NFineCore\src\NFineCore.Support\bin\Debug\netcoreapp2.1\NFineCore.Support.deps.json
+E:\CSharp\NFineCore\src\NFineCore.Support\bin\Debug\netcoreapp2.1\NFineCore.Support.dll
+E:\CSharp\NFineCore\src\NFineCore.Support\bin\Debug\netcoreapp2.1\NFineCore.Support.pdb
+E:\CSharp\NFineCore\src\NFineCore.Support\obj\Debug\netcoreapp2.1\NFineCore.Support.csproj.CoreCompileInputs.cache
+E:\CSharp\NFineCore\src\NFineCore.Support\obj\Debug\netcoreapp2.1\NFineCore.Support.AssemblyInfoInputs.cache
+E:\CSharp\NFineCore\src\NFineCore.Support\obj\Debug\netcoreapp2.1\NFineCore.Support.AssemblyInfo.cs
+E:\CSharp\NFineCore\src\NFineCore.Support\obj\Debug\netcoreapp2.1\NFineCore.Support.dll
+E:\CSharp\NFineCore\src\NFineCore.Support\obj\Debug\netcoreapp2.1\NFineCore.Support.pdb
+E:\CSharp\NFineCore\src\NFineCore.Support\obj\Debug\netcoreapp2.1\NFineCore.Support.csprojAssemblyReference.cache

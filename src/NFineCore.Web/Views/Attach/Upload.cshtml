@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+    <script src="/lib/jquery/1.12.4/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <link href="~/lib/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="/css/framework-style.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-fileinput/css/fileinput.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-fileinput/themes/explorer/theme.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-fileinput/themes/explorer-fa/theme.css" rel="stylesheet" />
+    <script src="~/lib/bootstrap-fileinput/js/fileinput.js"></script>
+    <script src="~/lib/bootstrap-fileinput/js/locales/zh.js"></script>
+    <script src="~/lib/bootstrap-fileinput/themes/explorer-fa/theme.js"></script>
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeIn">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>所有表单元素 <small>包括自定义样式的复选和单选按钮</small></h5>
+                    </div>
+                    <div class="ibox-content">
+                        <form enctype="multipart/form-data">
+                            <div class="file-loading">
+                                <input id="kv-explorer" type="file" multiple>
+                            </div>
+                        </form>
+                        @*<form method="get" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">普通</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">带说明信息</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control"> <span class="help-block m-b-none">帮助文本，可能会超过一行，以块级元素显示</span>
+                </div>
+            </div>
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">提示</label>
+
+                <div class="col-sm-10">
+                    <input type="text" placeholder="提示信息" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-2">
+                    <button class="btn btn-primary" type="submit">保存内容</button>
+                    <button class="btn btn-white" type="submit">取消</button>
+                </div>
+            </div>
+        </form>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#kv-explorer").fileinput({
+                uploadUrl: '/Attach/OnPostUpload?action=uploadimage',
+                theme: 'explorer-fa',
+                language: 'zh', 
+                dropZoneEnabled: false,
+                removeClass:"btn btn-white",
+                uploadClass:"btn btn-white",
+                browseClass: "btn btn-white", //按钮样式
+                overwriteInitial: false,
+                initialPreviewAsData: true,                
+                initialPreview: [],
+                initialPreviewConfig: []
+            });
+        });
+    </script>
+</body>
+</html>

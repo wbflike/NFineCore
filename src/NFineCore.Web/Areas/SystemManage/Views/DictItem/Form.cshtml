@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/framework-font.css" rel="stylesheet" />
+    <link href="~/css/framework-theme.css" rel="stylesheet" />
+    <script src="~/lib/jquery/1.12.4/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link href="~/lib/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/lib/wdtree/tree.js"></script>
+    <link href="~/lib/wdtree/tree.css" rel="stylesheet" />
+    <link href="~/lib/select2/select2.min.css" rel="stylesheet" />
+    <script src="~/lib/select2/select2.min.js"></script>
+    <script src="~/lib/laydate/laydate.js"></script>
+    <script src="~/lib/moment/moment.js"></script>
+    <link href="~/lib/wizard/wizard.css" rel="stylesheet" />
+    <script src="~/lib/wizard/wizard.js"></script>
+    <script src="~/lib/validate/jquery.validate.min.js"></script>
+    <script src="~/lib/datepicker/WdatePicker.js"></script>
+    <script src="~/lib/jqgrid/5.3.0/i18n/grid.locale-cn.js"></script>
+    <link href="~/css/framework-ui.css" rel="stylesheet" />
+    <script src="~/js/framework-ui.js"></script>
+</head>
+<body>
+    <script>
+        var keyValue = $.request("keyValue");
+        var dictId = $.request("dictId");
+        $(function () {
+            if (!!keyValue) {
+                $.ajax({
+                    url: "/SystemManage/DictItem/GetFormJson",
+                    data: { keyValue: keyValue },
+                    dataType: "json",
+                    async: false,
+                    success: function (data) {
+                        $("#form1").formSerialize(data);
+                    }
+                });
+            }
+        });
+        function submitForm() {
+            if (!$('#form1').formValid()) {
+                return false;
+            }
+            var postData = $("#form1").formSerialize();
+            postData["DictId"] = dictId;
+            $.submitForm({
+                url: "/SystemManage/DictItem/SubmitForm?keyValue=" + keyValue,
+                param: postData,
+                success: function () {
+                    $.currentWindow().$("#gridList").trigger("reloadGrid");
+                }
+            })
+        }
+    </script>
+    <form id="form1">
+        <div style="padding-top: 20px; margin-right: 20px;">
+            <table class="form">
+                <tr>
+                    <th class="formTitle">名称</th>
+                    <td class="formValue">
+                        <input id="ItemName" name="ItemName" type="text" class="form-control required" placeholder="请输入名称" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">编号</th>
+                    <td class="formValue">
+                        <input id="ItemCode" name="ItemCode" type="text" class="form-control required" placeholder="请输入编号" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle">排序</th>
+                    <td class="formValue">
+                        <input id="SortCode" name="SortCode" type="text" class="form-control required" />
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" style="height: 35px;">选项</th>
+                    <td class="formValue" style="padding-top: 1px;">
+                        <div class="ckbox">
+                            <input id="IsDefault" name="IsDefault" type="checkbox"><label for="IsDefault">默认</label>
+                        </div>
+                        <div class="ckbox">
+                            <input id="EnabledMark" name="EnabledMark" type="checkbox" checked="checked"><label for="EnabledMark">有效</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="formTitle" valign="top" style="padding-top: 5px;">
+                        备注
+                    </th>
+                    <td class="formValue">
+                        <textarea id="Description" name="Description" class="form-control" style="height: 60px;"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+.arrow {
+    display: inline-block;
+    overflow: hidden;
+    border-left: 115px dashed transparent;
+    border-bottom: 225px dashed transparent;
+    border-right: 335px dashed transparent;
+    border-top: 445px solid #fff;
+    vertical-align: middle
+}
+
+.arrow2 {
+    border-left: 5px dashed transparent;
+    border-bottom: 5px dashed transparent;
+    border-top: 5px dashed transparent;
+    border-right: 5px solid #ccc
+}
+
+.arrow3 {
+    border-top: 5px dashed transparent;
+    border-bottom: 5px dashed transparent;
+    border-right: 5px dashed transparent;
+    border-left: 5px solid #ccc
+}
+
+.customBootstrap .pagination > li > a {
+    margin-right: 5px;
+    border-radius: 2px;
+    background: #fff;
+    color: #333;
+    border-color: #ccc;
+    /*padding: 6px 15px*/
+}
+
+    .customBootstrap .pagination > li > a:hover, .customBootstrap .pagination > li > a:focus {
+        color: #fff;
+        background: #1ab394;
+        border-color: #1ab394
+    }
+
+.customBootstrap .pagination > .active > a, .customBootstrap .pagination > .active > a:hover, .customBootstrap .pagination > .active > a:focus {
+    color: #fff;
+    background: #1ab394;
+    border-color: #1ab394
+}
+
+.customBootstrap .pagination .arrow2 {
+    margin: 3px 8px 5px 0
+}
+
+.customBootstrap .pagination a:hover .arrow2 {
+    border-right-color: #fff
+}
+
+.customBootstrap .pagination .arrow3 {
+    margin: 3px 0 5px 8px
+}
+
+.customBootstrap .pagination a:hover .arrow3 {
+    border-left-color: #fff
+}
