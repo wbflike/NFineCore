@@ -7,7 +7,7 @@ CSS框架：Bootstrap v3.3.4（稳定是后台，UI方面根据需求自己升�
 客户端验证：jQuery Validation Plugin 1.9.0。  
 在线编辑器：UEditor  
 上传文件：Bootstrap FileInput  
-动态页签：Jerichotab(NFine原有的)  
+动态页签：Jerichotab（自己改造）  
 数据表格：jqGrid  
 对话框：layer-v2.3  
 下拉选择框：jQuery Select2  
