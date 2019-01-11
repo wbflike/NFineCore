@@ -28,7 +28,7 @@ CSS框架：Bootstrap v3.3.4（稳定是后台，UI方面根据需求自己升�
 持久层框架：EntityFrameworkCore  
 通用存储库：SharpRepository (https://github.com/SharpRepository/SharpRepository)  
 实体自动映射：AutoMapper  
-定时任务：Hangfire (https://www.hangfire.io/)
+定时任务：Hangfire (https://www.hangfire.io/)  
 缓存：Redis  
 日志：log4net  
 
