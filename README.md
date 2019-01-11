@@ -25,3 +25,6 @@ CSS框架：Bootstrap v3.3.4（稳定是后台，UI方面根据需求自己升�
 定时任务：Hangfire  
 缓存：Redis  
 日志：log4net  
+
+3、开发者信息
+QQ交流群：682325774
