@@ -1,8 +1,6 @@
 /src/.vs
-/src/NFineCore.Code/obj
-/src/NFineCore.Code/bin
-/src/NFineCore.Configuration/obj
-/src/NFineCore.Configuration/bin
+/src/NFineCore.Support/obj
+/src/NFineCore.Support/bin
 /src/NFineCore.EntityFramework/obj
 /src/NFineCore.EntityFramework/bin
 /src/NFineCore.Repository/obj

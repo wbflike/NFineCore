@@ -11,6 +11,7 @@ using NFineCore.Service.SystemManage;
 using NFineCore.Web.Controllers;
 using SharpRepository.Repository;
 using NFineCore.Web.Attributes;
+using Newtonsoft.Json;
 
 namespace NFineCore.Web.Areas.SystemManage.Controllers
 {
@@ -45,6 +46,7 @@ namespace NFineCore.Web.Areas.SystemManage.Controllers
                 page = pagination.page,
                 records = pagination.records
             };
+            Logger.Info(JsonConvert.SerializeObject(data));//此处调用日志记录函数记录日志
             return Content(data.ToJson());
         }
     }
