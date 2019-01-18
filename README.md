@@ -1,6 +1,6 @@
 # NFineCore
 基于 NFine 升级改造而来的 NFineCore，采用 .NET Core 2.2 框架开发，数据库支持 SQLServer、 MySQL、 Oracle 。  
-预览地址：http://www.flyang.net:8099/  
+预览地址：http://47.99.80.79:8099/  
 账号密码：admin/123456  
 
 ### 开发环境：  
